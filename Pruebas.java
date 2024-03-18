@@ -19,8 +19,6 @@ public class Pruebas {
         association3 = new Association<>("key3", "value3");
         binaryTree.insert("key1", "value1");
         binaryTree.insert("key2", "value2");
-        binaryTree.insert("key3", "value3");
-
     }
 
     @Test
