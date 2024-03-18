@@ -1,13 +1,24 @@
+/**Fernando Ruiz 23065
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-// import the Association class here
 
+/**
+ * Clase principal que lee archivos de texto para construir un diccionario y traducir texto.
+ */
 public class Main {
+    /**
+     * Método principal que maneja la lectura de archivos de texto y la traducción del contenido.
+     *
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
+        // Crear un árbol binario para almacenar el diccionario
         BinaryTree<String, Association<String, String>> dictionaryTree = new BinaryTree<>();
 
-        // Leer el archivo dictionary.txt
+        // Leer el archivo dictionary.txt y construir el diccionario
         try {
             File dictionaryFile = new File("dictionary.txt");
             Scanner dictionaryScanner = new Scanner(dictionaryFile);
@@ -29,13 +40,13 @@ public class Main {
             e.printStackTrace();
         }
 
-        // Leer el archivo texto.txt
+        // Leer el archivo texto.txt y traducir el contenido
         try {
-            File textoFile = new File("texto.txt");
-            Scanner textoScanner = new Scanner(textoFile);
+            File textFile = new File("texto.txt");
+            Scanner textScanner = new Scanner(textFile);
 
-            while (textoScanner.hasNextLine()) {
-                String line = textoScanner.nextLine();
+            while (textScanner.hasNextLine()) {
+                String line = textScanner.nextLine();
                 String[] words = line.split("\\s+");
                 for (String word : words) {
                     word = word.toLowerCase(); // Convertir a minúsculas para buscar en el diccionario
@@ -49,7 +60,7 @@ public class Main {
                 System.out.println();
             }
 
-            textoScanner.close();
+            textScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Error: texto.txt not found.");
             e.printStackTrace();
