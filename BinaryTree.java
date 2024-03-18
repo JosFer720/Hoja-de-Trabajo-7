@@ -79,4 +79,18 @@ public class BinaryTree<K extends Comparable<K>, V> {
             return node.getValue();
         }
     }
+
+    public void inOrderTraversal() {
+        inOrderTraversal(root);
+    }
+
+    private void inOrderTraversal(TreeNode<K, V> node) {
+        if (node == null) {
+            return;
+        }
+
+        inOrderTraversal(node.getLeft());
+        System.out.println(node.getKey() + " - " + node.getValue());
+        inOrderTraversal(node.getRight());
+    }
 }

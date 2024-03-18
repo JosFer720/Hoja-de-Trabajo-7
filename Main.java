@@ -39,6 +39,7 @@ public class Main {
             System.out.println("Error: dictionary.txt not found.");
             e.printStackTrace();
         }
+        dictionaryTree.inOrderTraversal();
 
         // Leer el archivo texto.txt y traducir el contenido
         try {
